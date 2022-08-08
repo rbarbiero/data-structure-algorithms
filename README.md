@@ -28,6 +28,7 @@
 - Linked List [[Link]][7]
 - Stack: [[Link]][9]
 - Queue [[Link]][8]
+- Hash Table [[Link]][16]
 
 [0]: https://www.youtube.com/watch?v=gXgEDyodOJU "Link"
 [1]: https://www.youtube.com/watch?v=k1wraWzqtvQ&t=2s "Link"
@@ -45,3 +46,4 @@
 [13]: https://www.youtube.com/watch?v=H5JubkIy_p8 "Link"
 [14]: https://www.youtube.com/watch?v=TIbUeeksXcI "Link"
 [15]: https://www.youtube.com/watch?v=COk73cpQbFQ "Link"
+[16]: https://www.youtube.com/watch?v=KyUTuwz_b7Q "Link"
