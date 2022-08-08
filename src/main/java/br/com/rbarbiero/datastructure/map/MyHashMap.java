@@ -8,7 +8,7 @@ import br.com.rbarbiero.datastructure.list.MyLinkedMyList;
 
 public class MyHashMap<K, V> implements MyMap<K, V> {
 
-  private final MyLinkedMyList[] elementData = new MyLinkedMyList[10];
+  private final MyLinkedMyList<MyEntry<K, Object>>[] elementData = new MyLinkedMyList[10];
 
   @Override
   public V put(K k, V v) {
@@ -54,8 +54,7 @@ public class MyHashMap<K, V> implements MyMap<K, V> {
 
   private int hash(K k) {
 
-    if (k instanceof String) {
-      String key = (String) k;
+    if (k instanceof String key) {
       String hashKey = "";
       for (int x = 0; x < key.length(); x++) {
         hashKey = hashKey.concat(valueOf((int) key.charAt(x)));
