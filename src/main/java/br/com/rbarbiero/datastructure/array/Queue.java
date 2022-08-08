@@ -19,71 +19,80 @@ import org.apache.logging.log4j.Logger;
  */
 public class Queue {
 
-		private static final String QUEUE_FULL_MESSAGE = "Queue is full";
-		private static final String QUEUE_IS_EMPTY = "Queue is empty";
-		private final Logger logger = LogManager.getLogger(Queue.class);
+  private static final String QUEUE_IS_EMPTY = "Queue is empty";
+  private final Logger logger = LogManager.getLogger(Queue.class);
 
-		private final int[] array;
-		private int front = -1;
-		private int rear = -1;
+  private Object[] array = new Object[10];
+  private int front = -1;
+  private int rear = -1;
 
-		public Queue(int capacity) {
-				this.array = new int[capacity];
-		}
+  public Object[] toArray() {
+    return (this.isEmpty()) ? new Object[0] : this.trim();
+  }
 
-		public void enqueue(final int value) {
+  private Object[] trim() {
+    final Object[] trimmed = new Object[rear + 1];
+    if (rear + 1 - front >= 0) {
+      System.arraycopy(this.array, front, trimmed, front, rear + 1 - front);
+    }
+    return trimmed;
+  }
 
-				if (this.isEmpty()) {
-						this.front++;
-						this.rear++;
-						this.array[0] = value;
-				} else {
-						final int position = this.calculateCircularPosition(this.rear + 1);
-						if (position == this.front) {
-								logger.info(QUEUE_FULL_MESSAGE);
-						} else {
-								this.array[position] = value;
-								this.rear++;
-						}
-				}
-		}
+  public void enqueue(final Object value) {
 
-		public boolean contains(final int value) {
-				for (int x = this.front; x <= this.rear; x++) {
-						if (this.array[x] == value) {
-								return true;
-						}
-				}
-				return false;
-		}
+    if (this.isEmpty()) {
+      this.front++;
+      this.rear++;
+      this.array[0] = value;
+    } else {
 
-		public int dequeue() {
+      final int position = this.calculateCircularPosition(this.rear + 1);
 
-				if (isEmpty()) {
-						logger.info(QUEUE_IS_EMPTY);
-						return -1;
-				} else {
+      if (position == this.front) {
+        this.grow();
+      }
 
-						int position = this.calculateCircularPosition(this.front);
+      this.array[position] = value;
+      this.rear++;
+    }
+  }
 
-						int value = this.array[position];
+  public Object dequeue() {
 
-						if (position == this.rear) {
-								this.front = -1;
-								this.rear = -1;
-						} else {
-								this.front++;
-						}
+    if (isEmpty()) {
+      logger.info(QUEUE_IS_EMPTY);
+      return -1;
+    } else {
 
-						return value;
-				}
-		}
+      int position = this.calculateCircularPosition(this.front);
 
-		private int calculateCircularPosition(final int position) {
-				return (position) % this.array.length;
-		}
+      Object value = this.array[position];
 
-		private boolean isEmpty() {
-				return this.front == -1 && this.rear == -1;
-		}
+      if (position == this.rear) {
+        this.front = -1;
+        this.rear = -1;
+      } else {
+        this.front++;
+      }
+
+      return value;
+    }
+  }
+
+  private int calculateCircularPosition(final int position) {
+    return (position) % this.array.length;
+  }
+
+  private boolean isEmpty() {
+    return this.front == -1 && this.rear == -1;
+  }
+
+  private void grow() {
+
+    final Object[] array = new Object[this.array.length * 2];
+
+    System.arraycopy(this.array, 0, array, 0, this.array.length);
+
+    this.array = array;
+  }
 }

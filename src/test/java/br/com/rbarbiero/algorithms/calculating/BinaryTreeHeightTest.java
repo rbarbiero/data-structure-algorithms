@@ -8,20 +8,20 @@ import org.junit.jupiter.api.Test;
 
 class BinaryTreeHeightTest {
 
-	private final BinaryTreeHeight binaryTreeHeight = new BinaryTreeHeight();
+  private final BinaryTreeHeight binaryTreeHeight = new BinaryTreeHeight();
 
-	@Test
-	@DisplayName("Should return the height of the binary tree with success")
-	void shouldCalculateHeightWithSuccess() {
+  @Test
+  @DisplayName("Should return the height of the binary tree with success")
+  void shouldCalculateHeightWithSuccess() {
 
-		final BinaryTree root = new BinaryTree(1, null, null);
+    final BinaryTree<Integer> root = new BinaryTree<>(1, null, null);
 
-		root.insert(2);
-		root.insert(3);
-		root.insert(4);
+    root.insert(2);
+    root.insert(3);
+    root.insert(4);
 
-		final int height = binaryTreeHeight.execute(root);
+    final int height = binaryTreeHeight.execute(root);
 
-		assertThat(height).isEqualTo(3);
-	}
+    assertThat(height).isEqualTo(3);
+  }
 }

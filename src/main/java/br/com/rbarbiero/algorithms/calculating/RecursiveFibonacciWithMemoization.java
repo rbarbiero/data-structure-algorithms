@@ -4,26 +4,26 @@ import java.util.HashMap;
 import java.util.Map;
 
 /***
-	* The time taken by recursive Fibonacci is O(2^n) or exponential.
-	*/
+ * The time taken by recursive Fibonacci is O(2^n) or exponential.
+ */
 public class RecursiveFibonacciWithMemoization {
 
-	private final Map<Integer, Integer> calculated = new HashMap<>();
+  private final Map<Integer, Integer> memo = new HashMap<>();
 
-	public int execute(final int value) {
+  public int execute(final int value) {
 
-		if (value <= 1) {
-			return value;
-		}
+    if (value <= 1) {
+      return value;
+    }
 
-		final Integer memoized = this.calculated.get(value);
+    final Integer memoized = this.memo.get(value);
 
-		return (memoized != null) ? memoized : this.calculate(value);
-	}
+    return (memoized != null) ? memoized : this.calculate(value);
+  }
 
-	private Integer calculate(final Integer value) {
-		final int result = this.execute(value - 1) + this.execute(value - 2);
-		this.calculated.put(value, result);
-		return result;
-	}
+  private Integer calculate(final Integer value) {
+    final int result = this.execute(value - 1) + this.execute(value - 2);
+    this.memo.put(value, result);
+    return result;
+  }
 }

@@ -1,14 +1,15 @@
-package br.com.rbarbiero.algorithms.calculating;
+package br.com.rbarbiero.algorithms.calculating.dynamicprogramming;
 
-public class FibonacciDynamicProgramming {
+public class Fibonacci {
+
   public int execute(final int value) {
     if (value < 1) {
       return 0;
     }
-    
+
     int[] memo = new int[value + 1];
 
-    //base cases
+    // base cases
     memo[0] = 0;
     memo[1] = 1;
 

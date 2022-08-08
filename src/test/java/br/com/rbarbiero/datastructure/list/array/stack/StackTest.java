@@ -8,24 +8,24 @@ import org.junit.jupiter.api.Test;
 
 class StackTest {
 
-	@Test
-	void push() {
+  @Test
+  void push() {
 
-		final Stack stack = new Stack();
+    final Stack stack = new Stack();
 
-		stack.push(1);
-	}
+    stack.push(1);
+  }
 
-	@Test
-	void pop() {
+  @Test
+  void pop() {
 
-		final Stack stack = new Stack();
+    final Stack stack = new Stack();
 
-		stack.push(1);
+    stack.push(1);
 
-		final int pop = stack.pop();
-		new HashSet<Integer>().add(1);
+    final int pop = stack.pop();
+    new HashSet<Integer>().add(1);
 
-		assertThat(pop).isOne();
-	}
+    assertThat(pop).isOne();
+  }
 }

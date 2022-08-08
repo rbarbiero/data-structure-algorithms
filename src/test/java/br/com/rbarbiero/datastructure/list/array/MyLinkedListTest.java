@@ -7,61 +7,61 @@ import org.junit.jupiter.api.Test;
 
 class MyLinkedListTest {
 
-	private final MyLinkedMyList<Integer> linkedMyList = new MyLinkedMyList<>();
+  private final MyLinkedMyList<Integer> linkedMyList = new MyLinkedMyList<>();
 
-	@Test
-	void append() {
-		linkedMyList.append(1);
-		linkedMyList.append(2);
-		linkedMyList.append(3);
-	}
+  @Test
+  void append() {
+    linkedMyList.append(1);
+    linkedMyList.append(2);
+    linkedMyList.append(3);
+  }
 
-	@Test
-	void prepend() {
-		linkedMyList.prepend(1);
-		linkedMyList.prepend(2);
-		linkedMyList.prepend(3);
-	}
+  @Test
+  void prepend() {
+    linkedMyList.prepend(1);
+    linkedMyList.prepend(2);
+    linkedMyList.prepend(3);
+  }
 
-	@Test
-	void delete() {
-		linkedMyList.append(1);
-		linkedMyList.append(2);
-		linkedMyList.append(3);
+  @Test
+  void delete() {
+    linkedMyList.append(1);
+    linkedMyList.append(2);
+    linkedMyList.append(3);
 
-		linkedMyList.delete(1);
+    linkedMyList.delete(1);
 
-		assertThat(linkedMyList.contains(1)).isFalse();
-		assertThat(linkedMyList.contains(2)).isTrue();
-		assertThat(linkedMyList.contains(3)).isTrue();
-	}
+    assertThat(linkedMyList.contains(1)).isFalse();
+    assertThat(linkedMyList.contains(2)).isTrue();
+    assertThat(linkedMyList.contains(3)).isTrue();
+  }
 
-	@Test
-	void pop() {
-		linkedMyList.append(1);
-		linkedMyList.append(2);
-		linkedMyList.append(3);
+  @Test
+  void pop() {
+    linkedMyList.append(1);
+    linkedMyList.append(2);
+    linkedMyList.append(3);
 
-		final Integer removed = linkedMyList.pop();
+    final Integer removed = linkedMyList.pop();
 
-		assertThat(removed).isOne();
-	}
+    assertThat(removed).isOne();
+  }
 
-	@Test
-	void contains() {
-		linkedMyList.append(1);
-		linkedMyList.append(2);
-		linkedMyList.append(3);
+  @Test
+  void contains() {
+    linkedMyList.append(1);
+    linkedMyList.append(2);
+    linkedMyList.append(3);
 
-		assertThat(linkedMyList.contains(1)).isTrue();
-	}
+    assertThat(linkedMyList.contains(1)).isTrue();
+  }
 
-	@Test
-	void notContains() {
-		linkedMyList.append(1);
-		linkedMyList.append(2);
-		linkedMyList.append(3);
+  @Test
+  void notContains() {
+    linkedMyList.append(1);
+    linkedMyList.append(2);
+    linkedMyList.append(3);
 
-		assertThat(linkedMyList.contains(4)).isFalse();
-	}
+    assertThat(linkedMyList.contains(4)).isFalse();
+  }
 }

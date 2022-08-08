@@ -6,13 +6,14 @@ import org.junit.jupiter.api.Test;
 
 class RecursiveFibonacciWithMemoizationTest {
 
-	private final RecursiveFibonacciWithMemoization recursiveFibonacciWithMemoization = new RecursiveFibonacciWithMemoization();
+  private final RecursiveFibonacciWithMemoization recursiveFibonacciWithMemoization =
+      new RecursiveFibonacciWithMemoization();
 
-	@Test
-	void execute() {
+  @Test
+  void execute() {
 
-		final int result = recursiveFibonacciWithMemoization.execute(10);
+    final int result = recursiveFibonacciWithMemoization.execute(10);
 
-		assertThat(result).isEqualTo(55);
-	}
+    assertThat(result).isEqualTo(55);
+  }
 }

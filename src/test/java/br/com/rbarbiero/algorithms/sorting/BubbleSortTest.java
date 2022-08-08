@@ -6,15 +6,15 @@ import org.junit.jupiter.api.Test;
 
 class BubbleSortTest {
 
-	private final BubbleSort bubbleSort = new BubbleSort();
+  private final BubbleSort bubbleSort = new BubbleSort();
 
-	@Test
-	void execute() {
+  @Test
+  void execute() {
 
-		int[] array = {4, 6, 2, 7, 3, 8, 2, 9, 0};
+    int[] array = {9, 8, 7, 6, 5, 4, 3, 2, 1};
 
-		final int[] sorted = bubbleSort.execute(array);
+    final int[] sorted = bubbleSort.execute(array);
 
-		assertThat(sorted).isSorted();
-	}
+    assertThat(sorted).isSorted();
+  }
 }

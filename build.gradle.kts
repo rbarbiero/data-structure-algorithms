@@ -16,9 +16,8 @@ repositories {
 spotless {
 
 	java {
-		palantirJavaFormat()
+		googleJavaFormat("1.15.0").reflowLongStrings()
 		trimTrailingWhitespace()
-		indentWithTabs(2)
 		endWithNewline()
 	}
 }

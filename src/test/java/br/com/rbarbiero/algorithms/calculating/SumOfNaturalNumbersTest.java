@@ -7,12 +7,12 @@ import org.junit.jupiter.api.Test;
 
 class SumOfNaturalNumbersTest {
 
-	@Test
-	@DisplayName("Should sum all of natural numbers")
-	void shouldSumNaturalNumbers() {
+  @Test
+  @DisplayName("Should sum all of natural numbers")
+  void shouldSumNaturalNumbers() {
 
-		final SumOfNaturalNumbers sum = new SumOfNaturalNumbers();
-		final int result = sum.execute(5);
-		assertThat(result).isEqualTo(15);
-	}
+    final SumOfNaturalNumbers sum = new SumOfNaturalNumbers();
+    final int result = sum.execute(5);
+    assertThat(result).isEqualTo(15);
+  }
 }

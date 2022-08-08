@@ -6,15 +6,15 @@ import org.junit.jupiter.api.Test;
 
 class QuickSortTest {
 
-	@Test
-	void execute() {
+  @Test
+  void execute() {
 
-		final int[] unsorted = new int[] {10, 80, 30, 90, 20, 28, 40, 50, 15, 39, 70};
+    final int[] unsorted = new int[] {10, 80, 30, 90, 20, 28, 40, 50, 15, 39, 70};
 
-		final QuickSort quickSort = new QuickSort();
+    final QuickSort quickSort = new QuickSort();
 
-		final int[] sorted = quickSort.execute(unsorted);
+    final int[] sorted = quickSort.execute(unsorted);
 
-		assertThat(sorted).isSorted();
-	}
+    assertThat(sorted).isSorted();
+  }
 }
