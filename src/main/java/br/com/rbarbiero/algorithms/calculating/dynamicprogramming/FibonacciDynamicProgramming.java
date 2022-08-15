@@ -1,6 +1,6 @@
 package br.com.rbarbiero.algorithms.calculating.dynamicprogramming;
 
-public class Fibonacci {
+public class FibonacciDynamicProgramming {
 
   public int execute(final int value) {
     if (value < 1) {
