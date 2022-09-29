@@ -19,8 +19,9 @@ import org.apache.logging.log4j.Logger;
  */
 public class Queue {
 
-  private static final String QUEUE_IS_EMPTY = "Queue is empty";
   private final Logger logger = LogManager.getLogger(Queue.class);
+
+  private static final String QUEUE_IS_EMPTY = "Queue is empty";
 
   private Object[] array = new Object[10];
   private int front = -1;

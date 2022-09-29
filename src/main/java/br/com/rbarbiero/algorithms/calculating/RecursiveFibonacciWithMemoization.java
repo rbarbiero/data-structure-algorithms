@@ -1,14 +1,13 @@
 package br.com.rbarbiero.algorithms.calculating;
 
-import java.util.HashMap;
-import java.util.Map;
+import br.com.rbarbiero.datastructure.map.MyHashMap;
 
 /***
  * The time taken by recursive Fibonacci is O(2^n) or exponential.
  */
 public class RecursiveFibonacciWithMemoization {
 
-  private final Map<Integer, Integer> memo = new HashMap<>();
+  private final MyHashMap<Integer, Integer> memo = new MyHashMap<>();
 
   public int execute(final int value) {
 

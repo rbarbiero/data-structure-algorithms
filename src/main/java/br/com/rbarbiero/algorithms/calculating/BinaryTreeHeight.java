@@ -12,7 +12,7 @@ import br.com.rbarbiero.datastructure.tree.BinaryTree;
  */
 public class BinaryTreeHeight {
 
-  public int execute(final BinaryTree node) {
+  public <T> int execute(final BinaryTree<T> node) {
     if (node.getLeft() == null && node.getRight() == null) {
       return 0;
     } else {

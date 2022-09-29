@@ -15,7 +15,7 @@ public class MyEntry<K, V> {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    MyEntry<?, ?> myEntry = (MyEntry<?, ?>) o;
+    final MyEntry<?, ?> myEntry = (MyEntry<?, ?>) o;
     return key.equals(myEntry.key) && value.equals(myEntry.value);
   }
 
