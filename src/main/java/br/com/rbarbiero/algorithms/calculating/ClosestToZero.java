@@ -23,9 +23,7 @@ public class ClosestToZero {
     if (positiveValue == aboveZero) {
       return aboveZero;
     } else {
-      return (positiveValue > aboveZero)
-          ? aboveZero
-          : belowZero;
+      return (positiveValue > aboveZero) ? aboveZero : belowZero;
     }
   }
 }

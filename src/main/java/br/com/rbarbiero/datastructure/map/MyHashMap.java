@@ -8,7 +8,7 @@ import br.com.rbarbiero.datastructure.list.MyLinkedMyList;
 
 public class MyHashMap<K, V> implements MyMap<K, V> {
 
-  private final MyLinkedMyList<MyEntry<K, Object>>[] elementData = new MyLinkedMyList<>[10];
+  private final MyLinkedMyList<MyEntry<K, Object>>[] elementData = new MyLinkedMyList[10];
 
   @Override
   public V put(K k, V v) {

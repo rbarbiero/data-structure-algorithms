@@ -1,27 +1,27 @@
 package br.com.rbarbiero.algorithms.calculating;
 
-import br.com.rbarbiero.datastructure.tree.BinaryTree;
+import br.com.rbarbiero.datastructure.tree.AVLBinaryTree;
 import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class BinaryTreeIsBalancedTest {
 
-    private final BinaryTreeIsBalanced binaryTreeIsBalanced = new BinaryTreeIsBalanced();
+  private final BinaryTreeIsBalanced binaryTreeIsBalanced = new BinaryTreeIsBalanced();
 
-    @Test
-    void execute() {
+  @Test
+  void execute() {
 
-        final BinaryTree<Integer> unbalancedTree = new BinaryTree<>(1, null, null);
+    final AVLBinaryTree unbalancedTree = new AVLBinaryTree(1, null, null);
 
-        unbalancedTree.insert(3);
-        unbalancedTree.insert(13);
-        unbalancedTree.insert(12);
-        unbalancedTree.insert(6);
-        unbalancedTree.insert(8);
-        unbalancedTree.insert(11);
-        unbalancedTree.insert(9);
+    unbalancedTree.insert(3);
+    unbalancedTree.insert(2);
 
-        binaryTreeIsBalanced.execute(unbalancedTree);
-    }
+    final boolean isBalanced = binaryTreeIsBalanced.execute(unbalancedTree);
+
+    unbalancedTree.insert(13);
+    unbalancedTree.insert(12);
+    unbalancedTree.insert(6);
+    unbalancedTree.insert(8);
+    unbalancedTree.insert(11);
+    unbalancedTree.insert(9);
+  }
 }

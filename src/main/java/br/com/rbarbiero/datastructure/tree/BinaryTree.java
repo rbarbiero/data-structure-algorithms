@@ -61,6 +61,9 @@ public class BinaryTree<T> implements Tree<T> {
         this.right.insert(value);
       }
     }
+
+
+
   }
 
   public BinaryTree<T> getRight() {

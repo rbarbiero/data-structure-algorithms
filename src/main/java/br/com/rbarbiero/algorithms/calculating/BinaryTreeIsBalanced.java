@@ -1,50 +1,60 @@
 package br.com.rbarbiero.algorithms.calculating;
 
-import br.com.rbarbiero.datastructure.tree.BinaryTree;
+import static br.com.rbarbiero.algorithms.calculating.RotateDirection.*;
 
-import java.util.ArrayList;
+import br.com.rbarbiero.datastructure.tree.AVLBinaryTree;
 
 public class BinaryTreeIsBalanced {
 
-    public <T> boolean execute(final BinaryTree<T> node){
-        var a = new ArrayList<>();
-        a.add(1);
-        return this.isBalanced(node);
-    }
+  private boolean isBalanced = true;
+  private AVLBinaryTree unbalancedNode = null;
+  private int balanceFactor = 0;
 
-    private <T> boolean isBalanced(final BinaryTree<T> node){
-        var a = new ArrayList<>();
-        a.add(1);
-        if(this.isChild(node)){
-           return true;
-        }else{
-            final int leftHeight = this.getLeftHeight(node);
-            final int rightHeight = this.getRightHeight(node);
-            final int balanceFactor = leftHeight - rightHeight;
-            return this.isBalanced(balanceFactor);
+  public boolean execute(final AVLBinaryTree node) {
+    return this.isBalanced(node);
+  }
+
+  private boolean isBalanced(final AVLBinaryTree node) {
+    if (this.isChild(node)) {
+      node.setBalanceFactor(0);
+      return true;
+    } else {
+      this.getHeight(node);
+      return isBalanced;
+    }
+  }
+
+  private int getHeight(final AVLBinaryTree node) {
+
+    if (this.isChild(node)) {
+      return 0;
+    } else {
+
+      int leftHeight = (node.getLeft() == null) ? -1 : this.getHeight(node.getLeft());
+      int rightHeight = ((node.getRight() == null) ? -1 : this.getHeight(node.getRight()));
+
+      if (this.isBalanced) {
+        this.balanceFactor = leftHeight - (rightHeight);
+        this.isBalanced = this.isBalanced(balanceFactor);
+        if (!this.isBalanced) {
+          this.unbalancedNode = node;
         }
+      }
+      node.setBalanceFactor(balanceFactor);
+      return balanceFactor;
     }
+  }
 
-    private boolean isBalanced(final int balanceFactor){
-        return balanceFactor >= -1 && balanceFactor <= 1;
-    }
+  public AVLBinaryTree balance(final AVLBinaryTree avlBinaryTree) {
+    final RotateDirection rotation = getRotation(this.unbalancedNode);
+    return rotation.execute(avlBinaryTree);
+  }
 
-    private <T> int getRightHeight(final BinaryTree<T> node){
+  private boolean isBalanced(final int balanceFactor) {
+    return balanceFactor >= -1 && balanceFactor <= 1;
+  }
 
-        if(node == null || node.getRight() == null) return -1;
-
-        return this.getRightHeight(node.getRight()) + 1;
-
-    }
-
-    private <T> int getLeftHeight(final BinaryTree<T> node){
-
-        if(node == null || node.getLeft() == null) return -1;
-
-        return this.getLeftHeight(node.getLeft()) + 1;
-    }
-
-    private <T> boolean isChild(final BinaryTree<T> node){
-        return node.getLeft() == null && node.getRight() == null;
-    }
+  private boolean isChild(final AVLBinaryTree node) {
+    return node.getLeft() == null && node.getRight() == null;
+  }
 }
