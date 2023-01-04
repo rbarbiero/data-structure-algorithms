@@ -5,23 +5,22 @@ import org.junit.jupiter.api.Test;
 
 class BinaryTreeIsBalancedTest {
 
-  private final BinaryTreeIsBalanced binaryTreeIsBalanced = new BinaryTreeIsBalanced();
+  private final BinaryTreeIsBalanced<Integer> binaryTreeIsBalanced = new BinaryTreeIsBalanced<>();
 
   @Test
   void execute() {
 
-    final AVLBinaryTree unbalancedTree = new AVLBinaryTree(1, null, null);
+    AVLBinaryTree<Integer> unbalancedTree = new AVLBinaryTree<>();
 
-    unbalancedTree.insert(3);
-    unbalancedTree.insert(2);
-
-    final boolean isBalanced = binaryTreeIsBalanced.execute(unbalancedTree);
-
-    unbalancedTree.insert(13);
-    unbalancedTree.insert(12);
-    unbalancedTree.insert(6);
-    unbalancedTree.insert(8);
-    unbalancedTree.insert(11);
-    unbalancedTree.insert(9);
+    unbalancedTree = unbalancedTree.insert(2);
+    unbalancedTree = unbalancedTree.insert(1);
+    unbalancedTree = unbalancedTree.insert(5);
+    unbalancedTree = unbalancedTree.insert(4);
+    unbalancedTree = unbalancedTree.insert(6);
+    unbalancedTree = unbalancedTree.insert(7);
+    unbalancedTree = unbalancedTree.insert(6);
+    unbalancedTree = unbalancedTree.insert(8);
+    unbalancedTree = unbalancedTree.insert(11);
+    unbalancedTree = unbalancedTree.insert(9);
   }
 }

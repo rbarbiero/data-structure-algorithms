@@ -16,7 +16,14 @@ public class BinaryTree<T> implements Tree<T> {
 
   private BinaryTree<T> right;
   private BinaryTree<T> left;
-  private final T value;
+  private T value;
+  private int balanceFactor;
+
+  public BinaryTree() {
+    this.value = null;
+    this.left = null;
+    this.right = null;
+  }
 
   public BinaryTree(final T value) {
     this.value = value;
@@ -47,7 +54,13 @@ public class BinaryTree<T> implements Tree<T> {
   }
 
   @Override
-  public void insert(T value) {
+  public BinaryTree<T> insert(T value) {
+
+    if (this.value == null) {
+      this.value = value;
+      return this;
+    }
+
     if (value.hashCode() <= this.value.hashCode()) {
       if (this.left == null) {
         this.left = new BinaryTree<>(value);
@@ -61,9 +74,7 @@ public class BinaryTree<T> implements Tree<T> {
         this.right.insert(value);
       }
     }
-
-
-
+    return null;
   }
 
   public BinaryTree<T> getRight() {
@@ -76,5 +87,30 @@ public class BinaryTree<T> implements Tree<T> {
 
   public T getValue() {
     return value;
+  }
+
+  @Override
+  public void setValue(T value) {
+    this.value = value;
+  }
+
+  @Override
+  public Integer getBalanceFactor() {
+    return this.balanceFactor;
+  }
+
+  @Override
+  public void setBalanceFactor(int balanceFactor) {
+    this.balanceFactor = balanceFactor;
+  }
+
+  @Override
+  public void setLeft(BinaryTree<T> left) {
+    this.left = left;
+  }
+
+  @Override
+  public void setRight(BinaryTree<T> right) {
+    this.right = right;
   }
 }
